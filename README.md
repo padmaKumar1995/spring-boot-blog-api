@@ -14,5 +14,7 @@ Make a web application for blogging with capabilities of handling various users
 - **User** should be able to **Comment** on posts.
 - **User** should be able to Like/Unlike a **Blog**
 
+---
+
 ## Development Decisions
 - Followed **Package By Feature**, just for practicing
