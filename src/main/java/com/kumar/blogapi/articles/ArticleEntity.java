@@ -3,10 +3,14 @@ package com.kumar.blogapi.articles;
 import com.kumar.blogapi.commons.BaseEntity;
 import com.kumar.blogapi.users.UserEntity;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Entity(name = "articles")
+@Getter
+@Setter
 public class ArticleEntity extends BaseEntity {
     @Column(unique = true, nullable = false, length = 150)
     String slug;

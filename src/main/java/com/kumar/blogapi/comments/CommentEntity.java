@@ -6,8 +6,12 @@ import com.kumar.blogapi.users.UserEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity(name = "comments")
+@Getter
+@Setter
 public class CommentEntity extends BaseEntity {
     @Column(nullable = false, length = 100)
     String title;

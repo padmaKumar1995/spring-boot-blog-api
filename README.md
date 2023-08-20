@@ -18,6 +18,7 @@ Make a web application for blogging with capabilities of handling various users
 
 ## Development Decisions
 - Followed **Package By Feature**, just for practicing
+- We are using **Slugs for Articles**, this would help in SEO.
 
 ---
 
@@ -74,7 +75,7 @@ Make a web application for blogging with capabilities of handling various users
 
 ## API Endpoints 
 
-### `POST /users` 
+### `POST /users`
 create a new user 
 
 ### `POST /users/login` 
