@@ -5,8 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class CreateArticleDto {
-    String title;
+public class ArticleResponseDTO {
+    Integer id;
     String slug;
-    String body;
+    String title;
+    Integer authorId;
 }

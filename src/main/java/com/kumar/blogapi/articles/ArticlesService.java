@@ -1,7 +1,7 @@
 package com.kumar.blogapi.articles;
 
-import com.kumar.blogapi.articles.dto.ArticleResponseDto;
-import com.kumar.blogapi.articles.dto.CreateArticleDto;
+import com.kumar.blogapi.articles.dto.ArticleResponseDTO;
+import com.kumar.blogapi.articles.dto.CreateArticleDTO;
 import com.kumar.blogapi.users.UsersService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class ArticlesService {
         this.modelMapper = modelMapper;
     }
 
-    public ArticleResponseDto createArticle(CreateArticleDto articleDto, Integer userId) {
+    public ArticleResponseDTO createArticle(CreateArticleDTO articleDto, Integer userId) {
         if(articleDto.getTitle() == null || articleDto.getBody() == null) {
             throw new ArticleDataMissing();
         }
@@ -29,7 +29,7 @@ public class ArticlesService {
 
         var savedArticle = articlesRepository.save(articleEntityToCreate);
 
-        var articleResponseDto = modelMapper.map(savedArticle, ArticleResponseDto.class);
+        var articleResponseDto = modelMapper.map(savedArticle, ArticleResponseDTO.class);
         articleResponseDto.setAuthorId(userId);
         return articleResponseDto;
     }
