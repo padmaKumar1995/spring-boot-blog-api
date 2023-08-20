@@ -19,6 +19,8 @@ Make a web application for blogging with capabilities of handling various users
 ## Development Decisions
 - Followed **Package By Feature**, just for practicing
 
+---
+
 ## JSON Entities
 
 ### User 
