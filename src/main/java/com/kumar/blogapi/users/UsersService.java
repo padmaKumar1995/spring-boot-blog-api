@@ -3,16 +3,19 @@ package com.kumar.blogapi.users;
 import com.kumar.blogapi.users.dto.CreateUserDTO;
 import com.kumar.blogapi.users.dto.UserResponseDTO;
 import org.modelmapper.ModelMapper;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UsersService {
     private final UsersRepository usersRepository;
     private final ModelMapper modelMapper;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsersService(UsersRepository usersRepository, ModelMapper modelMapper) {
+    public UsersService(UsersRepository usersRepository, ModelMapper modelMapper, PasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
         this.modelMapper = modelMapper;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public UserResponseDTO createUser(CreateUserDTO userDTO) {
@@ -24,6 +27,7 @@ public class UsersService {
         }
 
         var userEntityToSave = modelMapper.map(userDTO, UserEntity.class);
+        userEntityToSave.setPassword(passwordEncoder.encode(userEntityToSave.getPassword()));
         var savedUserEntity = usersRepository.save(userEntityToSave);
 
         return modelMapper.map(savedUserEntity, UserResponseDTO.class);
